@@ -1,0 +1,64 @@
+<ids:ids xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd" xmlns:ids="http://standards.buildingsmart.org/IDS">
+  <ids:info>
+    <ids:title />
+  </ids:info>
+  <ids:specifications>
+    <ids:specification ifcVersion="IFC4" name="Espaços possuem tipos predefinidos corretos">
+      <ids:applicability minOccurs="1" maxOccurs="unbounded">
+        <ids:entity>
+          <ids:name>
+            <ids:simpleValue>IFCSPACE</ids:simpleValue>
+          </ids:name>
+        </ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:entity>
+          <ids:name>
+            <ids:simpleValue>IFCSPACE</ids:simpleValue>
+          </ids:name>
+          <ids:predefinedType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="GFA" />
+              <xs:enumeration value="NOTDEFINED" />
+              <xs:enumeration value="USERDEFINED" />
+              <xs:enumeration value="PARKING" />
+              <xs:enumeration value="SPACE" />
+              <xs:enumeration value="IMPLANTACAO" />
+              <xs:enumeration value="LOTE" />
+            </xs:restriction>
+          </ids:predefinedType>
+        </ids:entity>
+      </ids:requirements>
+    </ids:specification>
+    <ids:specification ifcVersion="IFC4" name="Espaços possuem correta categorização para extração do quadro sinóptico">
+      <ids:applicability minOccurs="1" maxOccurs="unbounded">
+        <ids:entity>
+          <ids:name>
+            <ids:simpleValue>IFCSPACE</ids:simpleValue>
+          </ids:name>
+          <ids:predefinedType>
+            <ids:simpleValue>GFA</ids:simpleValue>
+          </ids:predefinedType>
+        </ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:property cardinality="required" dataType="IFCTEXT">
+          <ids:propertySet>
+            <ids:simpleValue>PtLicenciamento</ids:simpleValue>
+          </ids:propertySet>
+          <ids:baseName>
+            <ids:simpleValue>Uso</ids:simpleValue>
+          </ids:baseName>
+          <ids:value>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="Habitação" />
+              <xs:enumeration value="Serviços" />
+              <xs:enumeration value="Comercio" />
+              <xs:enumeration value="Estacionamento" />
+            </xs:restriction>
+          </ids:value>
+        </ids:property>
+      </ids:requirements>
+    </ids:specification>
+  </ids:specifications>
+</ids:ids>
